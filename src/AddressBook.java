@@ -33,8 +33,10 @@ public class AddressBook {
     }
 
     public void editContact(String name) {
+        boolean isFound = false;
         for (Contact contact : contacts) {
             if (contact.getFirstName().equalsIgnoreCase(name)) {
+                isFound = true;
                 boolean check = true;
                 while (check) {
                     System.out.println("Edit Options 1.firstName 2.lastName 3.address 4.city 5.state 6.zip 7.phonenumber 8.email 9.exit");
@@ -85,6 +87,26 @@ public class AddressBook {
                     }
                 }
             }
+        }
+        if (isFound) {
+            System.out.println("Contact Edited Successfully");
+        } else {
+            System.out.println("No Contact with firstname " + name + " in address book");
+        }
+    }
+
+    public void deleteContact(String fName) {
+        boolean isFound = false;
+        for (Contact contact : contacts) {
+            if (contact.firstName.equalsIgnoreCase(fName)) {
+                isFound = true;
+                contacts.remove(contact);
+            }
+        }
+        if (isFound) {
+            System.out.println("Deleted successfully");
+        } else {
+            System.out.println("No Contact with firstname " + fName + " in address book");
         }
     }
 }

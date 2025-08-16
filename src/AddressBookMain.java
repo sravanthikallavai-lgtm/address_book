@@ -10,7 +10,7 @@ public class AddressBookMain {
         AddressBook addressBook = new AddressBook();
         boolean isExit = false;
         while (!isExit) {
-            System.out.println("Enter choice\n1.Add Contact\n2.Show contacts in Address Book\n3.Edit Contact\n4.Exit");
+            System.out.println("Enter choice\n1.Add Contact\n2.Show contacts in Address Book\n3.Edit Contact\n4.Delete Contact\n5.Exit");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
@@ -38,6 +38,12 @@ public class AddressBookMain {
                     break;
                 }
                 case 4: {
+                    System.out.println("Enter first name of contact you want to delete");
+                    String fNameToBeDeleted = scanner.nextLine();
+                    addressBook.deleteContact(fNameToBeDeleted);
+                    break;
+                }
+                case 5: {
                     isExit = true;
                     break;
                 }
