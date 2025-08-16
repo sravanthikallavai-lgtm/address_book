@@ -16,7 +16,7 @@ public class AddressBookMain {
             switch (choice) {
                 case 1: {
                     addressBook.addContact();
-                    System.out.println("Added");
+                    System.out.println("Added Successfully");
                     break;
                 }
                 case 2: {
