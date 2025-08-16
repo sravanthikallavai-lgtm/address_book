@@ -10,7 +10,7 @@ public class AddressBookMain {
         AddressBook addressBook = new AddressBook();
         boolean isExit = false;
         while (!isExit) {
-            System.out.println("Enter choice\n1.Add Contact\n2.Show contacts in Address Book\n3.Exit");
+            System.out.println("Enter choice\n1.Add Contact\n2.Show contacts in Address Book\n3.Edit Contact\n4.Exit");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
@@ -32,6 +32,12 @@ public class AddressBookMain {
                     break;
                 }
                 case 3: {
+                    System.out.println("Enter first name of contact you want to edit");
+                    String fName = scanner.nextLine();
+                    addressBook.editContact(fName);
+                    break;
+                }
+                case 4: {
                     isExit = true;
                     break;
                 }
