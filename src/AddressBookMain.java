@@ -1,7 +1,9 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBookMain {
+
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program");
 
@@ -14,12 +16,11 @@ public class AddressBookMain {
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
-                case 1: {
+                case 1 -> {
                     addressBook.addContact();
                     System.out.println("Added Successfully");
-                    break;
                 }
-                case 2: {
+                case 2 -> {
                     ArrayList<Contact> contacts = addressBook.getContacts();
                     if (contacts.isEmpty()) {
                         System.out.println("No Contacts");
@@ -29,25 +30,21 @@ public class AddressBookMain {
                             System.out.println(contact.toString());
                         }
                     }
-                    break;
                 }
-                case 3: {
+                case 3 -> {
                     System.out.println("Enter first name of contact you want to edit");
                     String fName = scanner.nextLine();
                     addressBook.editContact(fName);
-                    break;
                 }
-                case 4: {
+                case 4 -> {
                     System.out.println("Enter first name of contact you want to delete");
                     String fNameToBeDeleted = scanner.nextLine();
                     addressBook.deleteContact(fNameToBeDeleted);
-                    break;
                 }
-                case 5: {
+                case 5 -> {
                     isExit = true;
-                    break;
                 }
-                default: {
+                default -> {
                     System.out.println("Invalid choice");
                 }
             }
