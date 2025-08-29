@@ -1,9 +1,10 @@
+
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook {
-    private ArrayList<Contact> contacts = new <Contact>ArrayList();
+
+    private final ArrayList<Contact> contacts = new ArrayList<>();
 
     ArrayList<Contact> getContacts() {
         return contacts;
@@ -96,17 +97,22 @@ public class AddressBook {
     }
 
     public void deleteContact(String fName) {
-        boolean isFound = false;
-        for (Contact contact : contacts) {
-            if (contact.firstName.equalsIgnoreCase(fName)) {
-                isFound = true;
-                contacts.remove(contact);
-            }
-        }
-        if (isFound) {
-            System.out.println("Deleted successfully");
+        if (contacts.isEmpty()) {
+            System.out.println("No Contacts in AddressBook");
         } else {
-            System.out.println("No Contact with firstname " + fName + " in address book");
+            boolean isFound = false;
+            for (int i = 0; i < contacts.size(); i++) {
+                if (contacts.get(i).firstName.equalsIgnoreCase(fName)) {
+                    isFound = true;
+                    contacts.remove(contacts.get(i));
+                }
+            }
+
+            if (isFound) {
+                System.out.println("Deleted successfully");
+            } else {
+                System.out.println("No Contact with firstname " + fName + " in address book");
+            }
         }
     }
 }
